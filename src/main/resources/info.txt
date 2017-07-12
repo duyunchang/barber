@@ -1,0 +1,58 @@
+ /**
+         * anon（匿名）  org.apache.shiro.web.filter.authc.AnonymousFilter
+         * authc（身份验证）       org.apache.shiro.web.filter.authc.FormAuthenticationFilter
+         * authcBasic（http基本验证）    org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter
+         * logout（退出）        org.apache.shiro.web.filter.authc.LogoutFilter
+         * noSessionCreation（不创建session） org.apache.shiro.web.filter.session.NoSessionCreationFilter
+         * perms(许可验证)  org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter
+         * port（端口验证）   org.apache.shiro.web.filter.authz.PortFilter
+         * rest  (rest方面)  org.apache.shiro.web.filter.authz.HttpMethodPermissionFilter
+         * roles（权限验证）  org.apache.shiro.web.filter.authz.RolesAuthorizationFilter
+         * ssl （ssl方面）   org.apache.shiro.web.filter.authz.SslFilter
+         * member （用户方面）  org.apache.shiro.web.filter.authc.UserFilter
+         * user  表示用户不一定已通过认证,只要曾被Shiro记住过登录状态的用户就可以正常发起请求,比如rememberMe
+         */
+         
+         
+         
+          //And --- 等价于 SQL 中的 and 关键字，比如 findByHeightAndSex(int height,char sex)；  
+ public List<User> findByHeightAndSex(int height,char sex);  
+  
+// Or --- 等价于 SQL 中的 or 关键字，比如 findByHeightOrSex(int height,char sex)；  
+ public List<User> findByHeightOrSex(int height,char sex);  
+  
+ //Between --- 等价于 SQL 中的 between 关键字，比如 findByHeightBetween(int min, int max)；  
+ public List<User> findByHeightBetween(int min,int max);  
+  
+ //LessThan --- 等价于 SQL 中的 "<"，比如 findByHeightLessThan(int max)；  
+ public List<User> findByHeightLessThan(int max);  
+  
+ //GreaterThan --- 等价于 SQL 中的">"，比如 findByHeightGreaterThan(int min)；  
+ public List<User> findByHeightGreaterThan(int min);  
+  
+ //IsNull --- 等价于 SQL 中的 "is null"，比如 findByNameIsNull()；  
+ public List<User> findByNameIsNull();  
+  
+ //IsNotNull --- 等价于 SQL 中的 "is not null"，比如 findByNameIsNotNull()；  
+ public List<User> findByNameIsNotNull();  
+  
+ //NotNull --- 与 IsNotNull 等价；  
+ public List<User> findByNameNotNull();  
+  
+ //Like --- 等价于 SQL 中的 "like"，比如 findByNameLike(String name);  
+ public List<User> findByNameLike(String name);  
+  
+ //NotLike --- 等价于 SQL 中的 "not like"，比如 findByNameNotLike(String name)；  
+ public List<User> findByNameNotLike(String name);  
+  
+ //OrderBy --- 等价于 SQL 中的 "order by"，比如 findByNameNotNullOrderByHeightAsc()；  
+ public List<User>findByNameNotNullOrderByHeightAsc();  
+  
+ //Not --- 等价于 SQL 中的 "！ ="，比如 findByNameNot(String name)；  
+ public List<User> findByNameNot(String name);  
+  
+ //In --- 等价于 SQL 中的 "in"，比如 findByNameIN(String name);  
+ public List<User> findByNameIn(String name);  
+  
+ //NotIn --- 等价于 SQL 中的 "not in"，比如 findByNameNotIN(String name);  
+ public List<User> findByNameNotIn(String name); 

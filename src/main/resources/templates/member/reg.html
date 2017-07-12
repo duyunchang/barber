@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>会员注册</title>
+    <script type="text/javascript" src="/barber/static/assets/jquery-3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/barber/static/assets/jquery-validation-1.15.0/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/barber/static/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="/barber/static/js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="/barber/static/assets/layer/mobile/layer.js"></script>
+</head>
+<body>
+    <form class="ajaxforms" method="post" action="/barber/member/reg">
+        用户名：<input type="text" name="account" />
+        密码：<input type="password" name="password" />
+        <input type="submit" value="添加" />
+    </form>
+    <script type="text/javascript">
+        $(function () {
+            var form = $("form.ajaxforms");
+            var formloading = false;
+            form.validate({
+                showErrors : function(errorMap, errorArr) {
+                    try {
+                        $(errorArr[0].element).focus();
+                        layer.msg(errorArr[0].message);
+                    } catch (err) {
+                    }
+                },
+                rules : {
+                    'account' : {
+                        required : true
+                    },
+                    'password' : {
+                        required : true,
+                    }
+                },
+                //验证未通过提示消息
+                messages : {
+                    'account' : {
+                        required : '请输入用户名'
+                    },
+                    'password' : {
+                        required : '请输入密码'
+                    },
+                },
+                submitHandler : function(forms) {
+                    if (formloading) return;
+                    $(forms).ajaxSubmit({
+                        url : form.attr('action'),
+                        dataType : 'json',
+                        beforeSubmit : function(arr, $form, options) {
+                            formloading = true;
+                        },
+                        success : function(data, statusText, xhr, $form) {
+                            formloading = false;
+                            if (data.status == 1) {
+                                window.location.href = '/barber/member/login';
+                            } else {
+                                layer.msg(data.msg);
+                            }
+                        }
+                    });
+                }
+            })
+        })(jQuery);
+    </script>
+</body>
+</html>

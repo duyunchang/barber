@@ -1,0 +1,4 @@
+1,在controller 里返回的url  return ReturnUtil.Success("操作成功", null, "/barber/console/admin/index"); 这个是给js ;js在重新请求一次的路径 需要全路径
+  他的路径 请求工程项目名开始的
+
+2,直接返回一个路径 return "console/admin/index"; 是controller里寻找本地目录下html 所以说他的 路径是在templates下开始的
