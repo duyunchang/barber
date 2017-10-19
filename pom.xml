@@ -37,7 +37,6 @@
 	    <version>1.5.3.RELEASE</version>
 	</parent>
 
-
 	<dependencies>
 	<!-- Spring Boot web依赖 -->
 		<dependency>
